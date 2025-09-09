@@ -217,7 +217,7 @@
             </div>
         </div>
         <div class="keyboard-hint">
-            💡 Tip: Use your keyboard! Numbers, operators (+, -, *, /), Enter for =, and Escape to clear
+           
         </div>
     </div>
 
@@ -259,7 +259,7 @@
                 expression = currentNumber + ' ' + op + ' ';
                 currentNumber = '0';
             } else if (expression !== '' && expression.slice(-2, -1) !== op) {
-                // Replace the last operator
+              
                 expression = expression.slice(0, -3) + ' ' + op + ' ';
             }
             
@@ -291,17 +291,15 @@
             }
             
             try {
-                // Replace display symbols with actual operators for evaluation
+
                 calcExpression = calcExpression.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
-                
-                // Evaluate the expression safely
                 const result = Function('"use strict"; return (' + calcExpression + ')')();
                 
                 if (!isFinite(result)) {
                     currentNumber = 'Error';
                 } else {
                     currentNumber = result.toString();
-                    // Format large numbers
+                  
                     if (currentNumber.length > 12) {
                         currentNumber = parseFloat(currentNumber).toExponential(6);
                     }
@@ -342,7 +340,7 @@
             updateDisplay();
         }
 
-        // Keyboard support
+       
         document.addEventListener('keydown', function(e) {
             e.preventDefault();
             
@@ -367,7 +365,7 @@
             }
         });
 
-        // Initialize display
+    
         updateDisplay();
     </script>
 </body>
